@@ -199,7 +199,9 @@ NSString *const KGModalGradientViewTapped = @"KGModalGradientViewTapped";
 - (void)cleanup{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.containerView removeFromSuperview];
+#ifndef SIGNING_ACTION_EXTENSION
     [[[[UIApplication sharedApplication] delegate] window] makeKeyWindow];
+#endif
     [self.window removeFromSuperview];
     self.contentViewController = nil;    
     self.window = nil;
